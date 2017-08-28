@@ -2,123 +2,49 @@
 
 
 \section{Automatic Bangla License Plate Recognition}
-Automatic Bangla License Plate Recognition  means detecting bangla languager characters from a license plate of any vehicle without human intervention. In this character recognition process we have follow the procedures given below.
+Automatic Bangla License Plate Recognition(ALPR)  means detecting bangla languager characters from a license plate of any vehicle without human intervention. In this character recognition process we have follow the procedures given below.
 \begin{itemize}
 \item Reduction of noise from already captured car images.
 \item Feature extraction.
 \item Creation of data set from the features.
 \item Recognition of characters.
 \end{itemize}
-\section{How to Write a Section}
 
-This is for writing section.
+Distorted detection of License Plate(LP) makes this procedure difficult. To extract the correct feature value from the image, some preprocesses need to be handled. Some significant issues such as,
+\begin{itemize}
 
-\section{How to Add Table and Figures}\label{contribution}
-You should refer a figure as, ``\Cref{fig:sample} is a sample
-figure''.
+\item Straighten the image
+\item Smoothing the image
+\item Reduction of noise
+\end{itemize}
+\section{Applications of ALPR}
+In an ALPR system, stationary cameras are mounted on road signs, street lights, buildings or highway  overpass for capturing images of moving or parked vehicles. Then the captured images will go through a software system that will first detect the LP location in the image  and then using the image, will extract some features values, and then using the features values in some machine learning algorithms finally get the final readings of that vehicle license plate. The recovered identity of the vehicle can be used in real time or stored in the database for future use.
 
-\begin{figure}[!tb]
-  \centering
-  \includegraphics[width=0.9\textwidth]{figures/sample}
-  \caption{This is a sample figure.}
-  \label{fig:sample}
-\end{figure}
+One of the most important applications of ALPR system is traffic law enforcement. ALPR system can be used for automatic and faster identification of stolen vehicles, criminal cars, speeder and traffic law breakers. Another great approach is automatic toll collection for highways, flyovers and bridges. This automatic approach saves time and reduce traffic congestion during toll collection. Even is gas station, shopping  mall parking ALPR can be very handy to managing car access. Many developed countries are using ALPR for this kind of purposes to make their system more automated and make day to day life of people more easier. 
+
+
+\section{Background and Motivation}
+ALPR is becoming popular from the past decades because of it's various real-life applications. Mainly a ALPR system consists of three important steps. Image acquisition, LP detection, feature extraction and character recognition. Among this three steps feature extraction and character recognition is totally software dependent and have to face many technical issues. The image acquired from the previous is not always suitable for feature extraction and character recognition. So, some preprocessing has to be done. Otherwise accuracy of character recognition will not be that satisfactory.
+So, far many algorithm and features has been implemented for optical character recognition. But all the algorithm and features have some flaws and weakness. Most of the algorithms have not considered the distorted, noisy ,titled, low contrasted images that much. That's why particular afford is needed to consider those problems and hence make such feature to make the most accuracy of character recognition.
 
 				
-Then we applied same test cases to our modified algorithm i.e.\ the
-heuristic algorithm with our new operation \textit{Block Reversal}. The
-performance is shown in \Cref{tab_our}.
+\section{Objective}
+In this thesis our objective was to extract feature values from already detected LP and then using machine language algorithm to detect the characters. To develop an effective ALPR, we considered the issue of hazardous image background, low contrast image and horizontal tilt problem. Specific objective if this thesis is stated below.
+\begin{itemize}
+\item Automatic feature extraction and recognition of Bangla characters from noiseless clean printed LP images.
+\item Automatic feature extraction and recognition of Bangla character from distorted, low contrast images.
+\item Automated character recognition from Bangla handwritten dataset.
+\end{itemize}
 
-
-\begin{table}[!tb]
-  \begin{center}
-    \caption{Performance table of \emph{Block reversal} in a heuristic algorithm}
-    \label{tab_our}
-
-    \begin{tabular}{|l|r|r|r|r|r|r|r|r|r|r|r|r|r|}
-      \hline
-      $\alpha$     & $\alpha n$ & \multicolumn{11}{c|}{Test Cases} & \multicolumn{1}{c|}{Average \# of}                                     \\
-      \cline{3-13} &            & 1                                & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 & calculated operation \\
-      \hline
-      0.1        & 2          & 2                                & 2	& 2  & 2  & 2  & 2  & 2  & 2  &	2  & 2	& 2  & 2                    \\
-      0.2        & 4          & 4                                & 4	& 5  & 2  & 4  & 4  & 4  & 4  &	2  & 4	& 4  & 3.73                 \\
-      0.3        & 6          & 5                                & 6	& 6  & 6  & 6  & 7  & 6  & 5  &	6  & 6	& 6  & 5.91                 \\
-      0.4        & 8          & 7                                & 8	& 5  & 6  & 7  & 6  & 6  & 7  &	8  & 8	& 7  & 6.82                 \\
-      0.5        & 10         & 9                                & 10	& 6  & 12 & 10 & 8  & 10 & 10 &	7  & 7	& 10 & 9                    \\
-      0.6        & 12         & 9                                & 12	& 16 & 10 & 12 & 12 & 9  & 11 &	12 & 9	& 12 & 11.27                \\
-      0.7        & 14         & 13                               & 7	& 18 & 15 & 14 & 8  & 13 & 11 &	13 & 13	& 14 & 12.64                \\
-      0.8        & 16         & 10                               & 17	& 14 & 16 & 13 & 16 & 13 & 11 &	13 & 17	& 13 & 13.91                \\
-      0.9        & 18         & 14                               & 16	& 15 & 12 & 15 & 11 & 15 & 11 &	15 & 12	& 12 & 13.45                \\
-      1          & 20         & 18                               & 11	& 13 & 11 & 13 & 15 & 17 & 17 &	13 & 18	& 12 & 14.36                \\
-      \hline
-    \end{tabular}
-  \end{center}
-\end{table}
-
-
-These are some dummy text used as page fillers only.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et
-ultricies massa. Nulla a sapien lobortis, dignissim nibh in, aliquet
-mauris. Integer at dictum metus. Quisque in tortor congue ipsum
-ultricies tristique. Maecenas ut tortor dapibus, sagittis enim at,
-tincidunt massa. Ut sollicitudin sagittis ipsum, ac tincidunt quam
-gravida ac. Nullam quis faucibus purus. Aliquam vel pretium
-turpis. Aliquam a quam non ex interdum sagittis id vitae quam. Nullam
-sodales ligula malesuada maximus consequat. Proin a justo eget lacus
-vulputate maximus luctus vitae enim. Aliquam libero turpis, pharetra a
-tincidunt ac, pulvinar sit amet urna. Pellentesque eget rutrum diam,
-in faucibus sapien. Aenean sit amet est felis. Aliquam dolor eros,
-porttitor quis volutpat eget, posuere a ligula. Proin id velit ac
-lorem finibus pellentesque.
-
-Maecenas vitae interdum mi. Aenean commodo nisl massa, at pharetra
-libero cursus vitae. In hac habitasse platea dictumst. Suspendisse
-iaculis euismod dui, et cursus diam. Nullam euismod, est ut dapibus
-condimentum, lorem eros suscipit risus, sit amet hendrerit justo
-tortor nec lorem. Morbi et mi eget erat bibendum porta. Ut tristique
-ultricies commodo. Nullam iaculis ligula sed lacinia ornare.
-
-Sed ultricies cursus nisi at vestibulum. Aenean laoreet viverra
-efficitur. Ut eget sapien lorem. Mauris malesuada, augue in pulvinar
-consectetur, ex tortor tristique ligula, sit amet faucibus metus
-lectus interdum nisl. Nam eget turpis vitae ligula pulvinar bibendum a
-ut ipsum. Mauris fringilla lacinia malesuada. Fusce id orci
-velit. Donec tristique rhoncus urna, a hendrerit arcu vehicula
-imperdiet. Integer tristique erat at gravida condimentum. Sed ornare
-cursus quam, eget tincidunt enim bibendum sed. Aliquam elementum
-ligula scelerisque leo sagittis, quis convallis elit dictum. Donec sit
-amet orci aliquam, ultricies sapien nec, gravida nisi. Etiam et
-pulvinar diam, et pellentesque arcu. Nulla interdum metus sed aliquet
-consequat.
-
-Proin in mi id nulla interdum aliquet ac quis arcu. Duis blandit
-sapien commodo turpis hendrerit pharetra. Phasellus sit amet justo
-orci. Proin mattis nisl dictum viverra fringilla. Interdum et
-malesuada fames ac ante ipsum primis in faucibus. Curabitur facilisis
-euismod augue vestibulum tincidunt. Nullam nulla quam, volutpat vitae
-efficitur eget, porta sit amet nunc. Phasellus pharetra est eget urna
-ornare volutpat. Aenean ultrices, libero eget porttitor fringilla,
-purus tortor accumsan neque, sit amet viverra felis tortor eget
-justo. Nunc id metus a purus tempus euismod condimentum non lacus. Nam
-vitae diam aliquam, facilisis diam quis, pharetra nunc. Nulla eget
-vestibulum tellus, ut cursus tellus. Vestibulum euismod pellentesque
-sodales.
-
-Maecenas at mi interdum, faucibus lorem sed, hendrerit nisi. In vitae
-augue consequat diam commodo porta sit amet eu purus. Mauris mattis
-condimentum feugiat. Nulla commodo molestie risus vitae maximus. Proin
-hendrerit neque malesuada urna laoreet convallis. Etiam a diam
-pulvinar, auctor sem ac, hendrerit risus. Ut urna urna, venenatis ac
-tellus non, scelerisque tristique ligula. Vestibulum sollicitudin vel
-leo malesuada accumsan. Donec sit amet erat diam. Vestibulum ante
-ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-Curae; Vivamus odio dui, scelerisque et lorem egestas, posuere
-ullamcorper nunc. Integer varius nunc nec velit tincidunt
-commodo. Mauris rhoncus ultrices sapien non suscipit.
-
-
-End of dummy text.
-
-
+\section{Scope of the Thesis}
+\begin{itemize}
+\item In this thesis we focus only on feature extraction and character recognition. We are not concern about detecting license plate from the vehicle image.
+\item In case of noisy image we try to remove noise as far as possible as the detection if image was not in our concern. Too much noisy and distorted images are not considered.
+\item We try to implement those features only which we think suitable for our images of vehicles.
+\item For image segmentation we initially segmented the character portion and the digits portion.
+\item Images where character portion and digit portion got overlapped wasn't considered. 
+\end{itemize}
+\section{Outline of Thesis}
+The rest of the thesis is organized as follows:
+In the Chapter 2, we briefly describe several feature extraction techniques and algorithms that we used for our ALPR system. Also the literature review of several existing ALPR techniques are given in this chapter.
 \endinput
